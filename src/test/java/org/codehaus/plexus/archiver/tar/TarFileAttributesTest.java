@@ -3,6 +3,7 @@ package org.codehaus.plexus.archiver.tar;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,9 +126,7 @@ public class TarFileAttributesTest
         // Cut from here, and feed it into a new tar archiver...then unarchive THAT.
         TarUnArchiver tarUnArchiver = (TarUnArchiver) lookup( UnArchiver.ROLE, "tar" );
 
-        File tempTarDir = File.createTempFile( "tar-test.", ".dir" );
-        tempTarDir.delete();
-        tempTarDir.mkdirs();
+        File tempTarDir = Files.createTempDirectory("tar-test." + ".dir").toFile();
 
         toDelete.add( tempTarDir );
 
@@ -189,9 +188,7 @@ public class TarFileAttributesTest
 
         TarUnArchiver tarUnArchiver = (TarUnArchiver) lookup( UnArchiver.ROLE, "tar" );
 
-        File tempTarDir = File.createTempFile( "tar-test.", ".dir" );
-        tempTarDir.delete();
-        tempTarDir.mkdirs();
+        File tempTarDir = Files.createTempDirectory("tar-test." + ".dir").toFile();
 
         toDelete.add( tempTarDir );
 
@@ -253,9 +250,7 @@ public class TarFileAttributesTest
 
         TarUnArchiver tarUnArchiver = (TarUnArchiver) lookup( UnArchiver.ROLE, "tar" );
 
-        File tempTarDir = File.createTempFile( "tar-test.", ".dir" );
-        tempTarDir.delete();
-        tempTarDir.mkdirs();
+        File tempTarDir = Files.createTempDirectory("tar-test." + ".dir").toFile();
 
         toDelete.add( tempTarDir );
 
@@ -319,9 +314,7 @@ public class TarFileAttributesTest
 
         TarUnArchiver tarUnArchiver = (TarUnArchiver) lookup( UnArchiver.ROLE, "tar" );
 
-        File tempTarDir = File.createTempFile( "tar-test.", ".dir" );
-        tempTarDir.delete();
-        tempTarDir.mkdirs();
+        File tempTarDir = Files.createTempDirectory("tar-test." + ".dir").toFile();
 
         toDelete.add( tempTarDir );
 

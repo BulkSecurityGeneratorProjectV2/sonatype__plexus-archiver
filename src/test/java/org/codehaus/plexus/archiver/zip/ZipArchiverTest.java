@@ -57,6 +57,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Enumeration;
@@ -160,10 +161,7 @@ public class ZipArchiverTest
         File tmpDir = null;
         try
         {
-            tmpDir = File.createTempFile( "zip-with-chmod.", ".dir" );
-            tmpDir.delete();
-
-            tmpDir.mkdirs();
+            tmpDir = Files.createTempDirectory("zip-with-chmod." + ".dir").toFile();
 
             for ( String executablePath : executablePaths )
             {

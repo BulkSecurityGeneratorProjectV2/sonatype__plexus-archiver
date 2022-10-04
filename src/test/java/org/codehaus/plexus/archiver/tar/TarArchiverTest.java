@@ -49,6 +49,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -99,10 +100,7 @@ public class TarArchiverTest
         File tmpDir = null;
         try
         {
-            tmpDir = File.createTempFile( "tbz2-with-chmod.", ".dir" );
-            tmpDir.delete();
-
-            tmpDir.mkdirs();
+            tmpDir = Files.createTempDirectory("tbz2-with-chmod." + ".dir").toFile();
 
             for ( String executablePath : executablePaths )
             {
